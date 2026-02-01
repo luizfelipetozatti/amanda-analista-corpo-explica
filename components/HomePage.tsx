@@ -4,7 +4,6 @@ import { CheckIcon } from './icons/CheckIcon';
 import { HeartIcon } from './icons/HeartIcon';
 import { WhatsappIcon } from './icons/WhatsappIcon';
 import { EmailIcon } from './icons/EmailIcon';
-import { PersonIcon } from './icons/PersonIcon';
 
 const HeroSection: React.FC = () => (
   <section className="bg-navy relative overflow-hidden">
@@ -32,8 +31,8 @@ const HeroSection: React.FC = () => (
         </div>
         <div className="flex-1 flex justify-center">
           <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 bg-beige rounded-full flex items-center justify-center p-8 border-4 border-gold shadow-2xl">
-              <PersonIcon className="w-full h-full text-navy/20" />
+            <div className="w-64 h-64 md:w-80 md:h-80 bg-beige rounded-full flex items-center justify-center p-2 border-4 border-gold shadow-2xl overflow-hidden">
+              <img src="/images/amanda02.jpeg" alt="Amanda Tozatti" className="w-full h-full object-cover rounded-full" />
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 gold-gradient rounded-full flex items-center justify-center shadow-lg">
               <HeartIcon className="w-12 h-12 text-navy" />
