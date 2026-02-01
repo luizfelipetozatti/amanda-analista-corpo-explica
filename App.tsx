@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 import SchedulingPage from './components/SchedulingPage';
 import ArticlesPage from './components/ArticlesPage';
+import { Analytics } from '@vercel/analytics/next';
 
 export type Page = 'home' | 'scheduling' | 'articles';
 
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         {renderPage()}
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 };
