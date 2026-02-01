@@ -4,7 +4,9 @@ import { services, defaultConfig } from '../constants';
 import { CheckIcon } from './icons/CheckIcon';
 import { WhatsappIcon } from './icons/WhatsappIcon';
 
-const ServiceCard: React.FC<typeof services[0]> = ({ title, description, duration, price, whatsappMessage }) => {
+type ServiceCardProps = typeof services[number];
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, duration, price, whatsappMessage, originalPrice, limitedOffer, comingSoon }) => {
     const whatsappUrl = `${defaultConfig.whatsapp_link}?text=${encodeURIComponent(whatsappMessage)}`;
     return (
         <div className="bg-white shadow-lg p-8 md:p-10 card-hover border-l-4 border-gold">
@@ -13,19 +15,49 @@ const ServiceCard: React.FC<typeof services[0]> = ({ title, description, duratio
                     <h3 className="font-display text-2xl md:text-3xl text-navy font-semibold mb-3">{title}</h3>
                     <p className="text-navy/70 text-base leading-relaxed mb-4">{description}</p>
                     <div className="flex flex-col gap-2 text-sm text-navy/60">
-                        <div className="flex items-center gap-2">
-                           <CheckIcon className="w-4 h-4 text-gold" />
-                           <span><strong>Duração:</strong> {duration}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                           <CheckIcon className="w-4 h-4 text-gold" />
-                           <span><strong>Valor:</strong> {price}</span>
-                        </div>
+                        {duration && (
+                            <div className="flex items-center gap-2">
+                                <CheckIcon className="w-4 h-4 text-gold" />
+                                <span><strong>Duração:</strong> {duration}</span>
+                            </div>
+                        )}
+                        {price && (
+                            <div className="flex items-center gap-2">
+                                <CheckIcon className="w-4 h-4 text-gold" />
+                                <span>
+                                    <strong>Valor:</strong>{' '}
+                                    {originalPrice ? (
+                                        <>
+                                            de <span className="line-through text-rose-300 mr-2">{originalPrice}</span>
+                                            por <span className="font-semibold text-emerald-400">{price}</span>
+                                        </>
+                                    ) : (
+                                        price
+                                    )}
+                                </span>
+                            </div>
+                        )}
+                        {limitedOffer && (
+                            <span className="uppercase text-xs tracking-widest text-gold font-semibold">
+                                por tempo limitado
+                            </span>
+                        )}
+                        {comingSoon && (
+                            <span className="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-widest text-navy bg-gold/90 px-3 py-1 mt-2 self-start rounded-full shadow-sm">
+                                Disponível em breve
+                            </span>
+                        )}
                     </div>
                 </div>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-gold hover-gold text-navy px-8 py-4 font-semibold tracking-wide transition-all duration-300 whitespace-nowrap h-fit">
-                    AGENDAR
-                </a>
+                {comingSoon ? (
+                    <div className="bg-navy/5 text-navy px-6 py-3 font-semibold tracking-wide whitespace-nowrap h-fit border border-dashed border-gold">
+                        Em preparação
+                    </div>
+                ) : (
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-gold hover-gold text-navy px-8 py-4 font-semibold tracking-wide transition-all duration-300 whitespace-nowrap h-fit">
+                        AGENDAR
+                    </a>
+                )}
             </div>
         </div>
     );

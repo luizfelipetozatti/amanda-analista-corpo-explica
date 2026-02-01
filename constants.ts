@@ -10,12 +10,25 @@ export const defaultConfig = {
   email_address: 'amandabuenotozatti@gmail.com'
 };
 
-export const services = [
+export type Service = {
+  title: string;
+  description: string;
+  duration: string;
+  price: string;
+  whatsappMessage: string;
+  originalPrice?: string;
+  limitedOffer?: boolean;
+  comingSoon?: boolean;
+};
+
+export const services: Service[] = [
   {
     title: 'Análise Corporal - Sessão Completa',
     description: 'Mapeamento completo dos seus traços de caráter e planejamento de 3 questões circunstanciais de padrões que você esteja com dificuldade de romper.',
     duration: '1h 30m',
     price: 'R$ 750,00',
+    originalPrice: 'R$ 970,00',
+    limitedOffer: true,
     whatsappMessage: 'Olá! Gostaria de agendar a Análise Corporal - Sessão Completa'
   },
   {
@@ -30,7 +43,17 @@ export const services = [
     description: '3 sessões de atendimento: uma para cada membro do casal (para que cada um conheça a si mesmo) e 1 sessão de alinhamento com 3 questões circunstanciais de padrões a serem resolvidos.',
     duration: '1h 30m cada sessão',
     price: 'R$ 1.000,00',
+    originalPrice: 'R$ 1.740,00',
+    limitedOffer: true,
     whatsappMessage: 'Olá! Gostaria de agendar o Atendimento de Casal'
+  },
+  {
+    title: 'Análise infantil - a partir dos 6 anos. Acompanhada pelos pais.',
+    description: 'Processo acolhedor para crianças em conjunto com os responsáveis, voltado ao entendimento dos traços e das necessidades emocionais da família.',
+    duration: '',
+    price: '',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre a Análise Infantil',
+    comingSoon: true
   }
 ];
 

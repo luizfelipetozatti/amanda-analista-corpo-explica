@@ -52,8 +52,8 @@ const AboutSection: React.FC = () => (
         <h2 className="font-display text-4xl md:text-5xl text-navy font-semibold">Quem Sou</h2>
         <div className="decorative-line mx-auto mt-6"></div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
-        <div className="flex-1">
+      <div className="flex flex-col gap-12">
+        <div>
           <div className="bg-beige p-8 relative">
             <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-gold -translate-x-4 -translate-y-4"></div>
             <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-gold translate-x-4 translate-y-4"></div>
@@ -62,12 +62,14 @@ const AboutSection: React.FC = () => (
             ))}
           </div>
         </div>
-        <div className="flex-1">
-          <div className="grid grid-cols-1 gap-6">
-            <div className="bg-navy p-8 text-center card-hover">
-              <p className="font-display text-4xl text-gold font-bold mb-2">Online</p>
-              <p className="text-white text-sm">e Presencial</p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="bg-navy p-8 text-center card-hover">
+            <p className="font-display text-3xl md:text-4xl text-gold font-bold mb-2">Online</p>
+            <p className="text-white text-sm uppercase tracking-[0.2em]">e Presencial</p>
+          </div>
+          <div className="bg-navy p-8 text-center card-hover">
+            <p className="font-display text-3xl md:text-4xl text-gold font-bold mb-2">Método</p>
+            <p className="text-white text-sm uppercase tracking-[0.2em]">cientificamente comprovado</p>
           </div>
         </div>
       </div>
